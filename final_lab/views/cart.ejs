@@ -1,0 +1,13 @@
+<h1>Your Cart</h1>
+<% if (cart.length > 0) { %>
+    <ul>
+        <% cart.forEach(item => { %>
+            <li><%= item.productName %> - $<%= item.price %> x <%= item.quantity %></li>
+        <% }); %>
+    </ul>
+    <form action="/orders/place" method="POST">
+        <button type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+<% } else { %>
+    <p>Your cart is empty</p>
+<% } %>
